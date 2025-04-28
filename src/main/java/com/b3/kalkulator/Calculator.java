@@ -1,7 +1,11 @@
 package com.b3.kalkulator;
 
 import com.b3.kalkulator.operation.*;
-import com.b3.kalkulator.validate.*;
+import com.b3.kalkulator.validate.Divition;
+import com.b3.kalkulator.validate.FormatInput;
+import com.b3.kalkulator.validate.Operation;
+import com.b3.kalkulator.validate.RangeNumber;
+
 import java.util.Scanner;
 
 public class Calculator {
@@ -37,9 +41,10 @@ public class Calculator {
         }
 
         // Melakukan validasi format input
-        String checkFormatInput = new FormatInput().isValidFormat(input);
-        if(!checkFormatInput.equals("Format Benar!")) {
-            System.out.println(checkFormatInput);
+        try {
+            new FormatInput().isValidFormat(input);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             return;
         }
 
@@ -70,21 +75,25 @@ public class Calculator {
             return;
         }
 
-        double hasil = 0;
-        switch (operasi) {
-            case "+":
-                hasil = pertambahan.calculate(angka1, angka2);
-                break;
-            case "-":
-                hasil = pengurangan.calculate(angka1, angka2);
-                break;
-            case "*":
-                hasil = perkalian.calculate(angka1, angka2);
-                break;
-            case "/":
-                hasil = pembagian.calculate(angka1, angka2);
-                break;
+        try {
+            double hasil = 0;
+            switch (operasi) {
+                case "+":
+                    hasil = pertambahan.calculate(angka1, angka2);
+                    break;
+                case "-":
+                    hasil = pengurangan.calculate(angka1, angka2);
+                    break;
+                case "*":
+                    hasil = perkalian.calculate(angka1, angka2);
+                    break;
+                case "/":
+                    hasil = pembagian.calculate(angka1, angka2);
+                    break;
+            }
+            System.out.printf("%d %s %d = %.2f%n", angka1, operasi, angka2, hasil);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
-        System.out.printf("%d %s %d = %.2f%n", angka1, operasi, angka2, hasil);
     }
 }
