@@ -1,7 +1,7 @@
 package com.b3.kalkulator;
 
 import com.b3.kalkulator.operation.*;
-import com.b3.kalkulator.validate.Divition;
+import com.b3.kalkulator.validate.DivisionValidate;
 import com.b3.kalkulator.validate.FormatInput;
 import com.b3.kalkulator.validate.Operation;
 import com.b3.kalkulator.validate.RangeNumber;
@@ -69,7 +69,7 @@ public class Calculator {
         }
 
         // Melakukan validasi pembagian dengan angka 0
-        Boolean isValidDivition = new Divition().validateDivition(angka2);
+        Boolean isValidDivition = new DivisionValidate().validateDivition(angka2);
         if (!isValidDivition) {
             System.out.println("Pembagian dengan angka 0 tidak valid!");
             return;
