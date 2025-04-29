@@ -1,20 +1,8 @@
 package com.b3.kalkulator;
 
-import com.b3.kalkulator.operation.*;
 import com.b3.kalkulator.validate.*;
 
 public class Calculator {
-    private Addition pertambahan;
-    private Subtraction pengurangan;
-    private Multiplication perkalian;
-    private Division pembagian;
-
-    public Calculator() {
-        this.pertambahan = new Addition();
-        this.pengurangan = new Subtraction();
-        this.perkalian = new Multiplication();
-        this.pembagian = new Division();
-    }
 
     public void start() {
         // Get input from InputScanner
@@ -39,20 +27,6 @@ public class Calculator {
         Integer angka2 = Integer.parseInt(parts[2]);
 
         double hasil = 0;
-        switch (operasi) {
-            case "+":
-                hasil = pertambahan.calculate(angka1, angka2);
-                break;
-            case "-":
-                hasil = pengurangan.calculate(angka1, angka2);
-                break;
-            case "*":
-                hasil = perkalian.calculate(angka1, angka2);
-                break;
-            case "/":
-                hasil = pembagian.calculate(angka1, angka2);
-                break;
-        }
         System.out.printf("%d %s %d = %.2f%n", angka1, operasi, angka2, hasil);
     }
 }
