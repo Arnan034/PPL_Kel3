@@ -1,12 +1,7 @@
 package com.b3.kalkulator;
 
 import com.b3.kalkulator.operation.*;
-import com.b3.kalkulator.validate.DivisionValidate;
-import com.b3.kalkulator.validate.FormatInput;
-import com.b3.kalkulator.validate.Operation;
-import com.b3.kalkulator.validate.RangeNumber;
-
-import java.util.Scanner;
+import com.b3.kalkulator.validate.*;
 
 public class Calculator {
     private Addition pertambahan;
@@ -22,78 +17,42 @@ public class Calculator {
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
+        // Get input from InputScanner
+        String input = new InputScanner().getInput();
         
-        System.out.println("\nKalkulator Dasar");
-        System.out.println("Format: <angka1> <operasi> <angka2>");
-        System.out.println("Operasi: + - * /");
-        System.out.println("Contoh: 10 + 5");
-        System.out.println("Ketik 'keluar' untuk mengakhiri");
-        
-        System.out.print("\nMasukkan perhitungan: ");
-        String input = scanner.nextLine().trim();
-        scanner.close();
-        
-        // Melakukan keluar kalkulator
-        if (input.equalsIgnoreCase("keluar")) {
-            System.out.println("=====> EXIT <=====");
+        // jika ingin keluar
+        if (input.equals("keluar")) {
             return;
         }
 
-        // Melakukan validasi format input
+
+        String[] parts;
         try {
-            new FormatInput().isValidFormat(input);
+            parts = new Validation().validateInput(input);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return;
         }
 
-        // memproses input menjadi operasi kalkulator
-        String[] parts = input.split(" ");
         Integer angka1 = Integer.parseInt(parts[0]);
         String operasi = parts[1];
         Integer angka2 = Integer.parseInt(parts[2]);
 
-        // Melakukan validasi range angka
-        Boolean isValidRange = new RangeNumber().validateRange(angka1) && new RangeNumber().validateRange(angka2);
-        if (!isValidRange) {
-            System.out.println("Angka harus dalam rentang -32768 hingga 32767!");
-            return;
+        double hasil = 0;
+        switch (operasi) {
+            case "+":
+                hasil = pertambahan.calculate(angka1, angka2);
+                break;
+            case "-":
+                hasil = pengurangan.calculate(angka1, angka2);
+                break;
+            case "*":
+                hasil = perkalian.calculate(angka1, angka2);
+                break;
+            case "/":
+                hasil = pembagian.calculate(angka1, angka2);
+                break;
         }
-
-        // Melakukan validasi operasi
-        Boolean isValidOperation = new Operation().validateOperation(operasi);
-        if (!isValidOperation) {
-            System.out.println("Operasi tidak valid! Gunakan +, -, *, atau /");
-            return;
-        }
-
-        // Melakukan validasi pembagian dengan angka 0
-        Boolean isValidDivition = new DivisionValidate().validateDivition(angka2);
-        if (!isValidDivition) {
-            System.out.println("Pembagian dengan angka 0 tidak valid!");
-            return;
-        }
-
-        try {
-            double hasil = 0;
-            switch (operasi) {
-                case "+":
-                    hasil = pertambahan.calculate(angka1, angka2);
-                    break;
-                case "-":
-                    hasil = pengurangan.calculate(angka1, angka2);
-                    break;
-                case "*":
-                    hasil = perkalian.calculate(angka1, angka2);
-                    break;
-                case "/":
-                    hasil = pembagian.calculate(angka1, angka2);
-                    break;
-            }
-            System.out.printf("%d %s %d = %.2f%n", angka1, operasi, angka2, hasil);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        System.out.printf("%d %s %d = %.2f%n", angka1, operasi, angka2, hasil);
     }
 }

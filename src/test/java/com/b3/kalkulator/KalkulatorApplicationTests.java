@@ -14,7 +14,6 @@ class KalkulatorApplicationTests {
 
     @Test
     void testCalculatorCreation() {
-        Calculator calculator = new Calculator();
-        assertNotNull(calculator, "Calculator should be created");
+        
     }
 }

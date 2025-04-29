@@ -7,7 +7,9 @@ public class FormatInput {
         }
         String[] parts = input.split(" ");
         if (parts.length != 3) {
-            throw new IllegalArgumentException( "Format input tidak valid! Harus ada 3 bagian: <angka1> <operasi> <angka2>");
+            throw new IllegalArgumentException( 
+                "Format input tidak valid! Harus ada 3 bagian: <angka1> <operasi> <angka2>"
+                );
         }
 
         try {
