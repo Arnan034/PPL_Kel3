@@ -40,11 +40,13 @@ public class Validation {
         }
 
         // Melakukan validasi pembagian dengan angka 0
-        Boolean isValidDivition = divisionValidate.validateDivition(angka2);
-        if (!isValidDivition) {
-            throw new IllegalArgumentException("Pembagian dengan angka 0 tidak valid!");
+        if (operasi.equals("/")) {
+            Boolean isValidDivition = divisionValidate.validateDivition(angka2);
+            if (!isValidDivition) {
+                throw new IllegalArgumentException("Pembagian dengan angka 0 tidak valid!");
+            }
         }
-
+            
         return parts;
     }
 }
