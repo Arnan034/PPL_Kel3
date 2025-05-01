@@ -16,7 +16,7 @@ public class FormatInput {
             Integer.parseInt(parts[0]);
             Integer.parseInt(parts[2]);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException( "Input harus berupa angka!");
+            throw new IllegalArgumentException( "Input harus berupa angka integer!");
         }
     }
 }
