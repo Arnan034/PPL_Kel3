@@ -2,9 +2,17 @@ package com.b3.kalkulator.test.operation;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 import static org.junit.jupiter.api.Assertions.*;
-import com.b3.kalkulator.operation.Addition;
 
+// import java.io.Serial;
+
+import com.b3.kalkulator.operation.Addition;
+import io.qameta.allure.*;
+
+@Epic("Kalkulator")
+@Feature("Penjumlahan")
+@Tag("Basic Operation")
 public class AdditionTest {
     private Addition addition;
 
@@ -14,6 +22,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan dua angka zero")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 0 + 0 dan memverifikasi hasilnya")
     public void testAdditionZeroAndZero() {
         // (1) Setup (arrage, build)
         Integer angka1 = 0;
@@ -23,12 +34,15 @@ public class AdditionTest {
         double actual;
         actual = addition.calculate(angka1, angka2);
         
-        // (3) Verify (assert, check
+        // (3) Verify (assert, check)
         double expected = 0.00;
         assertEquals(expected, actual, "0 + 0 = 0");
     }
 
     @Test
+    @Story("Penjumlahan dua angka positif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 12345 + 6789 dan memverifikasi hasilnya")
     public void testAdditionPositivePositive() {
         // (1) Setup (arrange, build)
         Integer angka1 = 12345;
@@ -43,6 +57,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan dua angka negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan -12345 + -6789 dan memverifikasi hasilnya")
     public void testAdditionNegativeNegative() {
         // (1) Setup
         Integer angka1 = -12345;
@@ -57,6 +74,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka positif dan satu angka negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan -12345 + 6789 dan memverifikasi hasilnya")
     public void testAdditionNegativePositive() {
         // (1) Setup
         Integer angka1 = -12345;
@@ -71,6 +91,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka positif dan satu angka negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 12345 + -6789 dan memverifikasi hasilnya")
     public void testAdditionPositiveNegative() {
         // (1) Setup
         Integer angka1 = 12345;
@@ -85,6 +108,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max positif dan satu angka negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 32768 + 0 dan memverifikasi hasilnya")
     public void testAdditionMaxAndZero() {
         // (1) Setup
         Integer angka1 = 32768;
@@ -99,6 +125,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max negatif dan satu angka positif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan -32768 + 0 dan memverifikasi hasilnya")
     public void testAdditionMinAndZero() {
         // (1) Setup
         Integer angka1 = -32768;
@@ -113,6 +142,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max positif dan satu angka max negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 32768 + -32768 dan memverifikasi hasilnya")
     public void testAdditionMaxAndMin() {
         // (1) Setup
         Integer angka1 = 32768;
@@ -127,6 +159,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max positif dan satu angka max positif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 32768 + 32768 dan memverifikasi hasilnya")
     public void testAdditionMaxAndMax() {
         // (1) Setup
         Integer angka1 = 32768;
@@ -141,6 +176,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max negatif dan satu angka max negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan -32768 + -32768 dan memverifikasi hasilnya")
     public void testAdditionMinAndMin() {
         // (1) Setup
         Integer angka1 = -32768;
@@ -155,6 +193,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max positif dan satu angka max negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 32768 + -32768 dan memverifikasi hasilnya")
     public void testAdditionZeroAndMax() {
         // (1) Setup
         Integer angka1 = 0;
@@ -169,6 +210,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka zero dan satu angka max positif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 0 + -32768 dan memverifikasi hasilnya")
     public void testAdditionZeroAndMin() {
         // (1) Setup
         Integer angka1 = 0;
@@ -183,6 +227,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka positif dan satu angka negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 1 + -1 dan memverifikasi hasilnya")
     public void testAdditionOneAndNegativeOne() {
         // (1) Setup
         Integer angka1 = 1;
@@ -197,6 +244,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max positif dan satu angka negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan 32767 + 1 dan memverifikasi hasilnya")
     public void testAdditionMaxMinusOneAndOne() {
         // (1) Setup
         Integer angka1 = 32767;
@@ -211,6 +261,9 @@ public class AdditionTest {
     }
 
     @Test
+    @Story("Penjumlahan satu angka max negatif dan satu angka negatif")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Menambahkan -32767 + -1 dan memverifikasi hasilnya")
     public void testAdditionNegativeMaxMinusOneAndMinusOne() {
         // (1) Setup
         Integer angka1 = -32767;
@@ -223,6 +276,4 @@ public class AdditionTest {
         double expected = -32768.00;
         assertEquals(expected, actual, "-32767 + -1 = -32768");
     }
-
-
 }
