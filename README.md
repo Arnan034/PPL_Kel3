@@ -52,3 +52,16 @@ mvn clean compile exec:java -Dexec.mainClass="com.b3.kalkulator.KalkulatorApplic
 ```bash
 mvn test
 ```
+
+## ▶️ Cara Melakukan Generate Report Menggunakan Allure
+```bash
+mvn allure:report
+```
+
+atau
+
+## ▶️ Cara Melakukan Generate Report Menggunakan Allure
+```bash
+mvn allure:report
+```
+buka file report yang ada pada folder <a>target/site/allure-maven-plugin/index.html</a>
