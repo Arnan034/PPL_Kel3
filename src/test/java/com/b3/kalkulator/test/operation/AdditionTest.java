@@ -23,7 +23,7 @@ public class AdditionTest {
         double actual;
         actual = addition.calculate(angka1, angka2);
         
-        // (3) Verify (assert, check
+        // (3) Verify (assert, check)
         double expected = 0.00;
         assertEquals(expected, actual, "0 + 0 = 0");
     }

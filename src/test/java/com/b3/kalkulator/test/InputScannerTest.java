@@ -12,15 +12,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class InputScannerTest {
 
     private void testInput(String simulatedInput, String expectedOutput, String message) {
-        // (1) Setup
+        // (1) Setup (arrage, build)
         InputStream originalIn = System.in;
         System.setIn(new ByteArrayInputStream((simulatedInput + "\n").getBytes()));
         InputScanner scanner = new InputScanner();
 
-        // (2) Exercise
+        // (2) Excercise (act, operate)
         String actual = scanner.getInput();
 
-        // (3) Verify
+        // (3) Verify (assert, check)
         assertEquals(expectedOutput, actual, message);
 
         System.setIn(originalIn);
