@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Epic("Kalkulator")
 @Feature("Input Scanner")
-@Tag("Basic Operation")
+@Tag("221524034 | Arnanda Prasatya")
 public class InputScannerTest {
 
     private void testInput(String simulatedInput, String expectedOutput, String message) {

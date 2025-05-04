@@ -12,7 +12,7 @@ import io.qameta.allure.*;
 
 @Epic("Kalkulator")
 @Feature("Penjumlahan")
-@Tag("Basic Operation")
+@Tag("221524034 | Arnanda Prasatya")
 public class AdditionTest {
     private Addition addition;
 

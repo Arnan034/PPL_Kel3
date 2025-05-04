@@ -41,6 +41,7 @@ Dalam proyek ini, kami juga menerapkan **unit testing otomatis** menggunakan fra
 - Java 21
 - Maven
 - JUnit 5
+- allure (generate report testing)
 
 ## ▶️ Cara Menjalankan Program
 
