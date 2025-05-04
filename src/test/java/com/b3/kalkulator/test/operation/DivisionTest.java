@@ -18,7 +18,6 @@ import io.qameta.allure.Story;
 @Epic("Kalkulator")
 @Feature("Pembagian")
 @Tag("221524063 | Zahran Anugerah Rizqullah")
-@Story("Pembagian dua angka")
 public class DivisionTest {
     private Division division;
 

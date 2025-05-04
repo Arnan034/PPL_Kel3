@@ -17,7 +17,6 @@ import io.qameta.allure.Story;
 @Epic("Kalkulator")
 @Feature("Validasi Range Angka")
 @Tag("221524063 | Zahran Anugerah Rizqullah")
-@Story("Validasi range angka antara -32768 dan 32767")
 public class RangeNumberTest {
     private RangeNumber rangeNumber;
 

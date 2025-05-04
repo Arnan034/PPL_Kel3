@@ -17,7 +17,6 @@ import io.qameta.allure.Story;
 @Epic("Kalkulator")
 @Feature("Validasi Pembagian")
 @Tag("221524063 | Zahran Anugerah Rizqullah")
-@Story("Validasi pembagian dengan angka 0")
 public class ValidateDivisionTest {
     private DivisionValidate divisionValidate;
 
