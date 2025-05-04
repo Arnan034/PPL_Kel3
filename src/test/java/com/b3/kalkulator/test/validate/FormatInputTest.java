@@ -11,7 +11,7 @@ import io.qameta.allure.*;
 
 @Epic("Kalkulator")
 @Feature("Validasi Input Format")
-@Tag("Validation")
+@Tag("221524034 | Arnanda Prasatya")
 public class FormatInputTest {
     private FormatInput formatInput;
 
