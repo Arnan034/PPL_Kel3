@@ -41,7 +41,7 @@ public class Validation {
 
         // Melakukan validasi pembagian dengan angka 0
         if (operasi.equals("/")) {
-            Boolean isValidDivition = divisionValidate.validateDivition(angka2);
+            Boolean isValidDivition = divisionValidate.validateDivision(angka2);
             if (!isValidDivition) {
                 throw new IllegalArgumentException("Pembagian dengan angka 0 tidak valid!");
             }
